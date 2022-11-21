@@ -1,0 +1,99 @@
+{
+    "extends": ["plugin:astro/all", "eslint:all", "preact", "prettier"],
+    "plugins": ["react", "react-hooks", "unused-imports", "import", "sort-keys-fix"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "overrides": [
+        {
+            // Define the configuration for `.astro` file.
+            "files": ["*.astro"],
+            // Allows Astro components to be parsed.
+            "parser": "astro-eslint-parser",
+            // Parse the script in `.astro` as TypeScript by adding the following configuration.
+            // It's the setting you need when using TypeScript.
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser",
+                "extraFileExtensions": [".astro"]
+            },
+            "rules": {
+                // override/add rules settings here, such as:
+                // "astro/no-set-html-directive": "error"
+                "consistent-return": "off"
+            }
+        }
+    ],
+    "rules": {
+        "no-console": "warn",
+        "react/jsx-sort-props": [
+            "error",
+            {
+                "reservedFirst": ["key"]
+            }
+        ],
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "sort-keys-fix/sort-keys-fix": "error",
+        "sort-keys": "off",
+        "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "error",
+            { "vars": "all", "varsIgnorePattern": "(_|Global)" }
+        ],
+        "no-underscore-dangle": "off",
+        "one-var": "off",
+        "max-statements": "off",
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+                "pathGroups": [
+                    {
+                        "pattern": "@components/**",
+                        "group": "parent"
+                    },
+                    {
+                        "pattern": "@layouts/**",
+                        "group": "parent"
+                    },
+                    {
+                        "pattern": "@stores/**",
+                        "group": "parent"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["builtin"],
+                "newlines-between": "always-and-inside-groups",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                },
+                "warnOnUnassignedImports": true
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+        },
+        "jest": {
+            "version": 26
+        }
+    },
+    "env": {
+        "browser": true,
+        "es2021": true
+    }
+}
