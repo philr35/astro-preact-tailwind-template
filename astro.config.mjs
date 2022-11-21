@@ -1,13 +1,11 @@
-import { defineConfig } from "astro/config";
-
+import node from "@astrojs/node";
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
-import node from "@astrojs/node";
 import compress from "astro-compress";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "server",
     adapter: node({
         mode: "middleware"
     }),
@@ -18,6 +16,7 @@ export default defineConfig({
         tailwind(),
         compress()
     ],
+    output: "server",
     server: {
         host: true,
         port: 3000
