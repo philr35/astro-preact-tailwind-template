@@ -29,6 +29,7 @@
         "@nanostores/preact": "^0.3.1",
         "@sentry/browser": "^7.17.3",
         "@sentry/tracing": "^7.17.3",
+        "@storyblok/astro": "^1.1.1",
         "astro": "^1.6.0",
         "astro-compress": "^1.1.1",
         "autoprefixer": "^10.4.13",
