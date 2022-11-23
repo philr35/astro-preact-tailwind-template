@@ -30,6 +30,5 @@ export default defineConfig({
     server: {
         host: true,
         port: 3000
-    },
-    site: "https://hermes-ui.cloud-ops.prod.corp.mongodb.com"
+    }
 });

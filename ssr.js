@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("./dist/client/"));
 app.use(ssrHandler);
 
-app.listen(3000, () => {
-    console.log(`Hermes SSR online http://localhost:3000`);
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Astro SSR online http://localhost:${PORT}`);
 });
